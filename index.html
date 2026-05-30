@@ -16,7 +16,7 @@
       line-height: 1.5;
     }
 
-    /* ─── HEADER ─── */
+    /* âââ HEADER âââ */
     .site-header {
       background: #0d1b3e;
       color: #fff;
@@ -34,7 +34,7 @@
       opacity: 0.65;
     }
 
-    /* ─── NAV TABS ─── */
+    /* âââ NAV TABS âââ */
     .nav-tabs {
       background: #0d1b3e;
       display: flex;
@@ -58,7 +58,7 @@
       border-bottom-color: #b8933a;
     }
 
-    /* ─── SECTIONS ─── */
+    /* âââ SECTIONS âââ */
     .section {
       display: none;
       padding: 20px 16px 40px;
@@ -67,7 +67,7 @@
     }
     .section.active { display: block; }
 
-    /* ─── SECTION HEADER ─── */
+    /* âââ SECTION HEADER âââ */
     .section-title {
       font-size: 0.7rem;
       font-weight: 700;
@@ -78,7 +78,7 @@
     }
     .section-title:first-child { margin-top: 4px; }
 
-    /* ─── DECISION TREE CARD ─── */
+    /* âââ DECISION TREE CARD âââ */
     .decision-card {
       background: #0d1b3e;
       color: #fff;
@@ -118,7 +118,7 @@
       flex-shrink: 0;
     }
 
-    /* ─── CARD BADGES ─── */
+    /* âââ CARD BADGES âââ */
     .badge {
       display: inline-block;
       padding: 2px 8px;
@@ -132,7 +132,7 @@
     .badge-plat    { background: #888780; color: #fff; }
     .badge-costco  { background: #c00; color: #fff; }
 
-    /* ─── SPEND CATEGORY ─── */
+    /* âââ SPEND CATEGORY âââ */
     .cat-block {
       background: #fff;
       border-radius: 10px;
@@ -175,7 +175,7 @@
       color: #666;
     }
 
-    /* ─── CHECKLIST ─── */
+    /* âââ CHECKLIST âââ */
     .check-group {
       background: #fff;
       border-radius: 10px;
@@ -235,7 +235,7 @@
       margin-top: 3px;
     }
 
-    /* ─── CARD SUMMARY ─── */
+    /* âââ CARD SUMMARY âââ */
     .card-block {
       background: #fff;
       border-radius: 10px;
@@ -279,7 +279,7 @@
       font-weight: 700;
     }
 
-    /* ─── KEY DATES ─── */
+    /* âââ KEY DATES âââ */
     .date-item {
       background: #fff;
       border-radius: 10px;
@@ -307,7 +307,7 @@
       line-height: 1.45;
     }
 
-    /* ─── INFO BOXES ─── */
+    /* âââ INFO BOXES âââ */
     .info-box {
       background: #fff;
       border-radius: 10px;
@@ -335,7 +335,7 @@
     .stat-label { color: #555; }
     .stat-val { font-weight: 700; color: #0d1b3e; }
 
-    /* ─── COST TABLE ─── */
+    /* âââ COST TABLE âââ */
     .cost-table {
       background: #fff;
       border-radius: 10px;
@@ -362,7 +362,7 @@
     .cost-label { color: inherit; }
     .cost-val { font-weight: 700; color: inherit; }
 
-    /* ─── FOOTER ─── */
+    /* âââ FOOTER âââ */
     footer {
       text-align: center;
       padding: 24px 16px;
@@ -373,7 +373,7 @@
     }
     footer a { color: #888; text-decoration: none; }
 
-    /* ─── CALL OUT ─── */
+    /* âââ CALL OUT âââ */
     .callout {
       border-left: 4px solid #b8933a;
       background: #fdf8f0;
@@ -396,7 +396,7 @@
 
 <header class="site-header">
   <h1>Herndon Card Strategy</h1>
-  <p>Last updated May 2026 · Internal reference</p>
+  <p>Last updated May 2026 Â· Internal reference</p>
 </header>
 
 <nav class="nav-tabs" id="mainNav">
@@ -405,9 +405,9 @@
   <a href="#" data-tab="summary">Summary</a>
 </nav>
 
-<!-- ══════════════════════════════════════════════
-     SECTION 1 — SPENDING GUIDELINES
-     ══════════════════════════════════════════════ -->
+<!-- ââââââââââââââââââââââââââââââââââââââââââââââ
+     SECTION 1 â SPENDING GUIDELINES
+     ââââââââââââââââââââââââââââââââââââââââââââââ -->
 <div class="section active" id="tab-spending">
 
   <!-- Decision Tree -->
@@ -416,32 +416,37 @@
 
     <div class="decision-row">
       <span class="decision-q">Delta flight booked direct?</span>
-      <span class="decision-arrow">→</span>
+      <span class="decision-arrow">â</span>
       <span class="decision-a" style="color:#888780;">Platinum</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Hotel via Amex Travel?</span>
-      <span class="decision-arrow">→</span>
+      <span class="decision-arrow">â</span>
       <span class="decision-a" style="color:#888780;">Platinum</span>
     </div>
     <div class="decision-row">
-      <span class="decision-q">Costco or any gas station?</span>
+      <span class="decision-q">Hotel NOT via Amex Travel?</span>
       <span class="decision-arrow">→</span>
+      <span class="decision-a" style="color:#ff6666;">Costco Visa</span>
+    </div>
+    <div class="decision-row">
+      <span class="decision-q">Costco or any gas station?</span>
+      <span class="decision-arrow">â</span>
       <span class="decision-a" style="color:#c00;">Costco Visa</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Walmart+ subscription?</span>
-      <span class="decision-arrow">→</span>
+      <span class="decision-arrow">â</span>
       <span class="decision-a" style="color:#888780;">Platinum</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Saks Fifth Avenue?</span>
-      <span class="decision-arrow">→</span>
+      <span class="decision-arrow">â</span>
       <span class="decision-a" style="color:#888780;">Platinum</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Everything else?</span>
-      <span class="decision-arrow">→</span>
+      <span class="decision-arrow">â</span>
       <span class="decision-a" style="color:#b8933a;">Gold</span>
     </div>
   </div>

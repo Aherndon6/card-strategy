@@ -16,7 +16,7 @@
       line-height: 1.5;
     }
 
-    /* âââ HEADER âââ */
+    /* ─── HEADER ─── */
     .site-header {
       background: #0d1b3e;
       color: #fff;
@@ -34,31 +34,38 @@
       opacity: 0.65;
     }
 
-    /* âââ NAV TABS âââ */
+    /* ─── NAV TABS ─── */
     .nav-tabs {
       background: #0d1b3e;
       display: flex;
       border-top: 1px solid rgba(255,255,255,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .nav-tabs a {
+    .nav-tabs button {
       flex: 1;
       text-align: center;
-      padding: 12px 6px;
-      font-size: 0.72rem;
+      padding: 12px 4px;
+      font-size: 0.68rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: rgba(255,255,255,0.55);
-      text-decoration: none;
+      background: none;
+      border: none;
       border-bottom: 3px solid transparent;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
       transition: color 0.15s, border-color 0.15s;
     }
-    .nav-tabs a:hover, .nav-tabs a.active {
+    .nav-tabs button:hover,
+    .nav-tabs button.active {
       color: #fff;
       border-bottom-color: #b8933a;
     }
 
-    /* âââ SECTIONS âââ */
+    /* ─── SECTIONS ─── */
     .section {
       display: none;
       padding: 20px 16px 40px;
@@ -67,7 +74,7 @@
     }
     .section.active { display: block; }
 
-    /* âââ SECTION HEADER âââ */
+    /* ─── SECTION HEADER ─── */
     .section-title {
       font-size: 0.7rem;
       font-weight: 700;
@@ -78,7 +85,7 @@
     }
     .section-title:first-child { margin-top: 4px; }
 
-    /* âââ DECISION TREE CARD âââ */
+    /* ─── DECISION TREE CARD ─── */
     .decision-card {
       background: #0d1b3e;
       color: #fff;
@@ -103,22 +110,11 @@
       font-size: 0.92rem;
     }
     .decision-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .decision-q {
-      flex: 1;
-      color: rgba(255,255,255,0.85);
-    }
-    .decision-arrow {
-      color: rgba(255,255,255,0.35);
-      font-size: 0.8rem;
-      flex-shrink: 0;
-    }
-    .decision-a {
-      font-weight: 700;
-      font-size: 0.82rem;
-      flex-shrink: 0;
-    }
+    .decision-q { flex: 1; color: rgba(255,255,255,0.85); }
+    .decision-arrow { color: rgba(255,255,255,0.35); font-size: 0.8rem; flex-shrink: 0; }
+    .decision-a { font-weight: 700; font-size: 0.82rem; flex-shrink: 0; }
 
-    /* âââ CARD BADGES âââ */
+    /* ─── CARD BADGES ─── */
     .badge {
       display: inline-block;
       padding: 2px 8px;
@@ -128,11 +124,11 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .badge-gold    { background: #b8933a; color: #fff; }
-    .badge-plat    { background: #888780; color: #fff; }
-    .badge-costco  { background: #c00; color: #fff; }
+    .badge-gold   { background: #b8933a; color: #fff; }
+    .badge-plat   { background: #888780; color: #fff; }
+    .badge-costco { background: #c00; color: #fff; }
 
-    /* âââ SPEND CATEGORY âââ */
+    /* ─── SPEND CATEGORY ─── */
     .cat-block {
       background: #fff;
       border-radius: 10px;
@@ -147,35 +143,18 @@
       padding: 13px 16px;
       background: #fff;
     }
-    .cat-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      flex: 1;
-    }
+    .cat-name { font-size: 0.95rem; font-weight: 700; flex: 1; }
     .cat-items {
       border-top: 1px solid #f0f0ee;
       padding: 10px 16px 14px;
       background: #fafaf8;
     }
-    .cat-item {
-      font-size: 0.875rem;
-      color: #444;
-      padding: 4px 0;
-    }
+    .cat-item { font-size: 0.875rem; color: #444; padding: 4px 0; }
     .cat-item .badge { margin-right: 5px; vertical-align: middle; }
-    .cat-sub {
-      font-size: 0.78rem;
-      color: #888;
-      margin-top: 2px;
-      padding-left: 4px;
-    }
-    .rate {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: #666;
-    }
+    .cat-sub { font-size: 0.78rem; color: #888; margin-top: 2px; padding-left: 4px; }
+    .rate { font-size: 0.78rem; font-weight: 600; color: #666; }
 
-    /* âââ CHECKLIST âââ */
+    /* ─── CHECKLIST ─── */
     .check-group {
       background: #fff;
       border-radius: 10px;
@@ -207,35 +186,43 @@
       border-bottom: 1px solid #f0f0ee;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+      user-select: none;
       transition: background 0.1s;
     }
     .check-item:last-child { border-bottom: none; }
     .check-item:active { background: #f5f5f0; }
+    .check-item.done { background: #fafaf8; }
 
-    .check-item input[type="checkbox"] {
+    .check-box {
       width: 22px;
       height: 22px;
       flex-shrink: 0;
       margin-top: 1px;
-      accent-color: #0d1b3e;
-      cursor: pointer;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, border-color 0.15s;
     }
-    .check-label {
-      font-size: 0.88rem;
-      color: #222;
-      line-height: 1.4;
+    .check-item.done .check-box {
+      background: #0d1b3e;
+      border-color: #0d1b3e;
     }
-    .check-item.done .check-label {
-      text-decoration: line-through;
-      color: #aaa;
+    .check-box-tick {
+      display: none;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1;
     }
-    .check-sub {
-      font-size: 0.78rem;
-      color: #888;
-      margin-top: 3px;
-    }
+    .check-item.done .check-box-tick { display: block; }
 
-    /* âââ CARD SUMMARY âââ */
+    .check-label { font-size: 0.88rem; color: #222; line-height: 1.4; }
+    .check-item.done .check-label { text-decoration: line-through; color: #aaa; }
+    .check-sub { font-size: 0.78rem; color: #888; margin-top: 3px; }
+    .check-item.done .check-sub { color: #ccc; }
+
+    /* ─── CARD SUMMARY ─── */
     .card-block {
       background: #fff;
       border-radius: 10px;
@@ -247,39 +234,14 @@
       padding: 14px 16px 10px;
       border-bottom: 1px solid #f0f0ee;
     }
-    .card-block-header h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-    .card-tag {
-      font-size: 0.7rem;
-      color: #888;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .card-block-body {
-      padding: 12px 16px 16px;
-    }
-    .card-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-      font-size: 0.855rem;
-    }
-    .card-row-label {
-      font-weight: 600;
-      color: #555;
-      flex-shrink: 0;
-      width: 56px;
-    }
+    .card-block-header h3 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+    .card-tag { font-size: 0.7rem; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .card-block-body { padding: 12px 16px 16px; }
+    .card-row { display: flex; gap: 8px; margin-bottom: 8px; font-size: 0.855rem; }
+    .card-row-label { font-weight: 600; color: #555; flex-shrink: 0; width: 56px; }
     .card-row-val { color: #222; }
-    .highlight-val {
-      font-weight: 700;
-    }
 
-    /* âââ KEY DATES âââ */
+    /* ─── KEY DATES ─── */
     .date-item {
       background: #fff;
       border-radius: 10px;
@@ -301,13 +263,9 @@
       flex-shrink: 0;
     }
     .date-pill.urgent { background: #c00; }
-    .date-desc {
-      font-size: 0.875rem;
-      color: #222;
-      line-height: 1.45;
-    }
+    .date-desc { font-size: 0.875rem; color: #222; line-height: 1.45; }
 
-    /* âââ INFO BOXES âââ */
+    /* ─── INFO BOXES ─── */
     .info-box {
       background: #fff;
       border-radius: 10px;
@@ -315,11 +273,7 @@
       margin-bottom: 12px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.07);
     }
-    .info-box p {
-      font-size: 0.875rem;
-      color: #333;
-      margin-bottom: 6px;
-    }
+    .info-box p { font-size: 0.875rem; color: #333; margin-bottom: 6px; }
     .info-box p:last-child { margin-bottom: 0; }
     .info-box strong { color: #0d1b3e; }
 
@@ -335,7 +289,7 @@
     .stat-label { color: #555; }
     .stat-val { font-weight: 700; color: #0d1b3e; }
 
-    /* âââ COST TABLE âââ */
+    /* ─── COST TABLE ─── */
     .cost-table {
       background: #fff;
       border-radius: 10px;
@@ -351,18 +305,110 @@
       font-size: 0.875rem;
     }
     .cost-row:last-child { border-bottom: none; }
-    .cost-row.total-row {
-      background: #0d1b3e;
-      color: #fff;
-    }
-    .cost-row.net-row {
-      background: #1a4a2e;
-      color: #fff;
-    }
+    .cost-row.total-row { background: #0d1b3e; color: #fff; }
+    .cost-row.net-row   { background: #1a4a2e; color: #fff; }
     .cost-label { color: inherit; }
     .cost-val { font-weight: 700; color: inherit; }
 
-    /* âââ FOOTER âââ */
+    /* ─── CALLOUT ─── */
+    .callout {
+      border-left: 4px solid #b8933a;
+      background: #fdf8f0;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.86rem;
+      color: #333;
+    }
+    .callout.red  { border-color: #c00;    background: #fff5f5; }
+    .callout.gray { border-color: #888780; background: #f7f7f6; }
+
+    /* ─── TRACKER ─── */
+    .tracker-updated {
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      margin-bottom: 16px;
+      margin-top: 4px;
+    }
+    .tracker-card {
+      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    }
+    .tracker-card-header {
+      padding: 12px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fff;
+    }
+    .tracker-card-header.gold-bg { background: #b8933a; }
+    .tracker-card-header.plat-bg { background: #636360; }
+    .tracker-benefit {
+      padding: 12px 16px;
+      border-bottom: 1px solid #f0f0ee;
+    }
+    .tracker-benefit:last-child { border-bottom: none; }
+    .tracker-benefit-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .tracker-benefit-name { font-size: 0.875rem; font-weight: 600; color: #222; }
+    .tracker-benefit-amounts { font-size: 0.8rem; color: #666; white-space: nowrap; }
+    .tracker-benefit-amounts .remaining { font-weight: 700; color: #0d1b3e; }
+    .tracker-benefit-amounts .used { color: #999; }
+    .progress-bar {
+      height: 6px;
+      background: #eee;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .progress-fill.gold  { background: #b8933a; }
+    .progress-fill.plat  { background: #888780; }
+    .progress-fill.full  { background: #2a7a4a; }
+    .tracker-benefit-note {
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-top: 4px;
+    }
+    .tracker-summary-box {
+      background: #0d1b3e;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .tracker-summary-box h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.6;
+      margin-bottom: 12px;
+    }
+    .tracker-sum-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .tracker-sum-row:last-child { border-bottom: none; }
+    .tracker-sum-label { opacity: 0.75; }
+    .tracker-sum-val   { font-weight: 700; }
+
+    /* ─── FOOTER ─── */
     footer {
       text-align: center;
       padding: 24px 16px;
@@ -373,22 +419,9 @@
     }
     footer a { color: #888; text-decoration: none; }
 
-    /* âââ CALL OUT âââ */
-    .callout {
-      border-left: 4px solid #b8933a;
-      background: #fdf8f0;
-      border-radius: 0 8px 8px 0;
-      padding: 12px 14px;
-      margin-bottom: 12px;
-      font-size: 0.86rem;
-      color: #333;
-    }
-    .callout.red  { border-color: #c00; background: #fff5f5; }
-    .callout.gray { border-color: #888780; background: #f7f7f6; }
-
     @media (min-width: 500px) {
       .site-header h1 { font-size: 2rem; }
-      .nav-tabs a { font-size: 0.8rem; }
+      .nav-tabs button { font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -396,57 +429,790 @@
 
 <header class="site-header">
   <h1>Herndon Card Strategy</h1>
-  <p>Last updated May 2026 Â· Internal reference</p>
+  <p>Last updated May 2026 · Internal reference</p>
 </header>
 
 <nav class="nav-tabs" id="mainNav">
-  <a href="#" class="active" data-tab="spending">Spending</a>
-  <a href="#" data-tab="checklist">Checklist</a>
-  <a href="#" data-tab="summary">Summary</a>
+  <button class="active" data-tab="spending">Spending</button>
+  <button data-tab="checklist">Checklist</button>
+  <button data-tab="summary">Summary</button>
+  <button data-tab="tracker">Tracker</button>
 </nav>
 
-<!-- ââââââââââââââââââââââââââââââââââââââââââââââ
-     SECTION 1 â SPENDING GUIDELINES
-     ââââââââââââââââââââââââââââââââââââââââââââââ -->
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1 — SPENDING GUIDELINES
+     ══════════════════════════════════════════════ -->
 <div class="section active" id="tab-spending">
 
-  <!-- Decision Tree -->
   <div class="decision-card">
     <h2>Which card?</h2>
-
     <div class="decision-row">
       <span class="decision-q">Delta flight booked direct?</span>
-      <span class="decision-arrow">â</span>
-      <span class="decision-a" style="color:#888780;">Platinum</span>
+      <span class="decision-arrow">→</span>
+      <span class="decision-a" style="color:#b0b0ac;">Platinum</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Hotel via Amex Travel?</span>
-      <span class="decision-arrow">â</span>
-      <span class="decision-a" style="color:#888780;">Platinum</span>
+      <span class="decision-arrow">→</span>
+      <span class="decision-a" style="color:#b0b0ac;">Platinum</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Hotel NOT via Amex Travel?</span>
       <span class="decision-arrow">→</span>
-      <span class="decision-a" style="color:#ff6666;">Costco Visa</span>
+      <span class="decision-a" style="color:#d4a84b;">Gold</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Costco or any gas station?</span>
-      <span class="decision-arrow">â</span>
-      <span class="decision-a" style="color:#c00;">Costco Visa</span>
+      <span class="decision-arrow">→</span>
+      <span class="decision-a" style="color:#ff6666;">Costco Visa</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Walmart+ subscription?</span>
-      <span class="decision-arrow">â</span>
-      <span class="decision-a" style="color:#888780;">Platinum</span>
+      <span class="decision-arrow">→</span>
+      <span class="decision-a" style="color:#b0b0ac;">Platinum</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Saks Fifth Avenue?</span>
-      <span class="decision-arrow">â</span>
-      <span class="decision-a" style="color:#888780;">Platinum</span>
+      <span class="decision-arrow">→</span>
+      <span class="decision-a" style="color:#b0b0ac;">Platinum</span>
     </div>
     <div class="decision-row">
       <span class="decision-q">Everything else?</span>
-      <span class="decision-arrow">â</span>
-      <span class="decision-a" style="color:#b8933a;">Gold</span>
+      <span class="decision-arrow">→</span>
+      <span class="decision-a" style="color:#d4a84b;">Gold</span>
     </div>
   </div>
+
+  <p class="section-title">Dining</p>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">All Restaurants &amp; Food</span>
+      <span class="badge badge-gold">Gold 4x</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Every restaurant, cafe, coffee shop, bar</div>
+      <div class="cat-item">Business lunches and breakfast meetings</div>
+      <div class="cat-item">DoorDash, GrubHub, Uber Eats</div>
+      <div class="cat-sub">GrubHub triggers $10/month dining credit — use it</div>
+    </div>
+  </div>
+
+  <p class="section-title">Groceries</p>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">All Grocery Stores</span>
+      <span class="badge badge-gold">Gold 4x</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Kroger, Publix, Trader Joe's, Fresh Market, Thrive Market, Walmart grocery</div>
+    </div>
+  </div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Costco Warehouse Only</span>
+      <span class="badge badge-costco">Costco Visa 2%</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Visa required — Gold not accepted at Costco</div>
+    </div>
+  </div>
+
+  <p class="section-title">Gas</p>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Every Station, Every Vehicle</span>
+      <span class="badge badge-costco">Costco Visa 4%</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Costco Gas, Kroger Fuel, Shell, QT, all others — always Costco Visa</div>
+    </div>
+  </div>
+
+  <p class="section-title">Travel</p>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Delta Flights (Direct Only)</span>
+      <span class="badge badge-plat">Platinum 5x</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Book only at delta.com or Delta app — not through third parties</div>
+    </div>
+  </div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Hotels via Amex Travel</span>
+      <span class="badge badge-plat">Platinum 5x</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Book only at amextravel.com</div>
+    </div>
+  </div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Hotels — NOT via Amex Travel</span>
+      <span class="badge badge-gold">Gold</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Any hotel booked direct, Marriott.com, Hyatt.com, Expedia, Hotels.com, etc.</div>
+      <div class="cat-sub">Keep on Gold while working toward $8,000 welcome bonus spend (100k MR points)</div>
+    </div>
+  </div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Car Rentals</span>
+      <span class="badge badge-gold">Gold</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Activates Hertz Five Star status</div>
+    </div>
+  </div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Rideshare</span>
+      <span class="badge badge-gold">Gold</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Uber and Lyft rides</div>
+    </div>
+  </div>
+
+  <p class="section-title">Recurring Subscriptions</p>
+  <div class="callout">All subscriptions on Gold — except Walmart+ stays on Platinum to trigger $155 annual credit.</div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">All Subscriptions</span>
+      <span class="badge badge-gold">Gold</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">GiftHealth / LillyDirect <span class="rate">$304/mo</span></div>
+      <div class="cat-item">Baseball Lab <span class="rate">$514.50/mo</span></div>
+      <div class="cat-item">Peloton <span class="rate">$49.99/mo</span></div>
+      <div class="cat-item">Mint Mobile <span class="rate">$262/mo</span></div>
+      <div class="cat-item">Audible <span class="rate">$16.28/mo</span></div>
+      <div class="cat-item">Claude.ai <span class="rate">$20/mo</span></div>
+      <div class="cat-item">Life360 / Tile <span class="rate">$149.99/yr</span></div>
+      <div class="cat-item">YMCA <span class="rate">$58.93/mo</span></div>
+      <div class="cat-item">Atlanta Classical — monthly fees</div>
+      <div class="cat-item">Winshape Camps — seasonal</div>
+    </div>
+  </div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Walmart+ — Exception</span>
+      <span class="badge badge-plat">Platinum</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Must stay on Platinum to trigger $155 annual credit</div>
+    </div>
+  </div>
+
+  <p class="section-title">Shopping</p>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Amazon &amp; Online Shopping</span>
+      <span class="badge badge-gold">Gold</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Amazon and all other online retail</div>
+    </div>
+  </div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Costco.com Orders</span>
+      <span class="badge badge-costco">Costco Visa</span>
+    </div>
+  </div>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Saks Fifth Avenue</span>
+      <span class="badge badge-plat">Platinum</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Triggers $100 annual credit ($50 Jan-Jun, $50 Jul-Dec)</div>
+    </div>
+  </div>
+
+  <p class="section-title">Kids &amp; Family</p>
+  <div class="cat-block">
+    <div class="cat-header">
+      <span class="cat-name">Bailey's Gold AU Card</span>
+      <span class="badge badge-gold">Gold</span>
+    </div>
+    <div class="cat-items">
+      <div class="cat-item">Same earn rates as Adam and Wendy</div>
+      <div class="cat-item">School fees, sports, activities — Atlanta Classical, Baseball Lab, BSN Sports</div>
+    </div>
+  </div>
+
+  <p class="section-title">Wendy's Disney Trips</p>
+  <div class="callout">Keep Disney Visa for Disney purchases until October product change. After October, Disney spend moves to Gold.</div>
+
+</div><!-- /tab-spending -->
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2 — BIMONTHLY CHECKLIST
+     ══════════════════════════════════════════════ -->
+<div class="section" id="tab-checklist">
+
+  <p class="section-title" style="margin-top:4px">Amex Gold — Monthly Credits</p>
+  <div class="check-group">
+    <div class="check-group-header gold-header">Amex Gold · Monthly — Check Both Months</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$10 dining credit used</div>
+        <div class="check-sub">GrubHub, Cheesecake Factory, Buffalo Wild Wings, Wonder</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$10 Uber Cash loaded and used</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$7 Dunkin' credit used</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">Amex Platinum — Monthly Credits</p>
+  <div class="check-group">
+    <div class="check-group-header plat-header">Amex Platinum · Monthly — Check Both Months</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$10 Uber Cash loaded and used</div>
+        <div class="check-sub">Separate from Gold — check Uber app balance</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$20 digital entertainment credit triggering</div>
+        <div class="check-sub">Disney+, Hulu, ESPN+, Peacock, NYT, WSJ</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Walmart+ credit triggering correctly</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">Amex Gold — Annual Credits</p>
+  <div class="check-group">
+    <div class="check-group-header gold-header">Amex Gold · Annual</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$100 Resy credit on track</div>
+        <div class="check-sub">$50 Jan–Jun · $50 Jul–Dec</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$96 Uber One credit claimed</div>
+        <div class="check-sub">Expires October 30 2026 — one time only, enroll in Amex app now</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">Amex Platinum — Annual Credits</p>
+  <div class="check-group">
+    <div class="check-group-header plat-header">Amex Platinum · Annual</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$200 airline fee credit on track</div>
+        <div class="check-sub">Delta selected</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$200 hotel credit on track</div>
+        <div class="check-sub">Fine Hotels + Resorts or Hotel Collection via Amex Travel only</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$240 digital entertainment credit on track</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$155 Walmart+ credit on track</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$100 Saks credit on track</div>
+        <div class="check-sub">$50 Jan–Jun · $50 Jul–Dec</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">Spend Routing Audit</p>
+  <div class="check-group">
+    <div class="check-group-header audit-header">Routing Check</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">All dining on Gold — no restaurant charges on Platinum or Costco Visa</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">All groceries on Gold — not on any other card</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">All Costco and gas on Costco Visa</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">All Delta flights on Platinum</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Recurring charges routing correctly</div>
+        <div class="check-sub">Spot check: GiftHealth, Baseball Lab, Winshape, Amazon, Peloton, Mint Mobile</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">Points &amp; Rewards</p>
+  <div class="check-group">
+    <div class="check-group-header points-header">Points Check</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">MR balance in Amex app — target 250,000 points</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Amex Offers checked on Gold and Platinum — add relevant ones</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Costco Visa YTD reward in Citi app — target ~$360 by February</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">October Only</p>
+  <div class="check-group">
+    <div class="check-group-header oct-header">October Action Items</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Redeem all Disney Rewards Dollars at DisneyRewards.com before product change</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Call Chase 1-800-300-8575 — product change Disney Visa ending 4177 to Chase Freedom Unlimited</div>
+        <div class="check-sub">"I'd like to product change my Disney Rewards Visa ending in 4177 to the Chase Freedom Unlimited. Keep the account open, transfer the credit line, do not close the card."</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Confirm annual fee of ~$50 will NOT post on November 1</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">February Only</p>
+  <div class="check-group">
+    <div class="check-group-header feb-header">February Action Items</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Redeem Costco Executive Membership reward certificate at register</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Redeem Costco Visa annual reward certificate at register</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">Use to cover $130 membership renewal — pocket remainder as cash</div>
+        <div class="check-sub">Estimated combined payout ~$520 (Executive ~$160 + Visa ~$360)</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-checklist -->
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3 — CARD STRATEGY SUMMARY
+     ══════════════════════════════════════════════ -->
+<div class="section" id="tab-summary">
+
+  <p class="section-title" style="margin-top:4px">The Cards</p>
+
+  <div class="card-block">
+    <div class="card-block-header">
+      <h3 style="color:#636360;">Amex Platinum</h3>
+      <span class="card-tag">Keep · Annual fee card</span>
+    </div>
+    <div class="card-block-body">
+      <div class="card-row">
+        <span class="card-row-label">Fee</span>
+        <span class="card-row-val">$890 gross ($695 + $195 Wendy AU) · <strong>~$390 net</strong> after credits</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Use for</span>
+        <span class="card-row-val">Delta flights direct, hotels via Amex Travel, Walmart+, Saks</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Earn</span>
+        <span class="card-row-val">5x flights &amp; hotels booked through Amex</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Key</span>
+        <span class="card-row-val">Lounge access both travelers · $500+ in annual credits</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-block">
+    <div class="card-block-header">
+      <h3 style="color:#b8933a;">Amex Gold</h3>
+      <span class="card-tag">Primary card · Wendy and Bailey AU free</span>
+    </div>
+    <div class="card-block-body">
+      <div class="card-row">
+        <span class="card-row-label">Fee</span>
+        <span class="card-row-val">$325 gross · <strong>~$85 net</strong> after credits</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Use for</span>
+        <span class="card-row-val">All dining, all groceries except Costco, all subscriptions, everything else</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Earn</span>
+        <span class="card-row-val">4x dining worldwide · 4x US supermarkets · 5x prepaid hotels via Amex Travel</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Credits</span>
+        <span class="card-row-val">$120 dining · $120 Uber Cash · $100 Resy · $84 Dunkin · $96 Uber One (exp. Oct 30 2026)</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Bonus</span>
+        <span class="card-row-val">100,000 MR points after $8,000 spend in 6 months</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-block">
+    <div class="card-block-header">
+      <h3 style="color:#c00;">Costco Anywhere Visa</h3>
+      <span class="card-tag">Gas &amp; Costco · No annual fee</span>
+    </div>
+    <div class="card-block-body">
+      <div class="card-row">
+        <span class="card-row-label">Fee</span>
+        <span class="card-row-val">$0</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Use for</span>
+        <span class="card-row-val">All Costco warehouse · all gas everywhere · anywhere Visa required</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Earn</span>
+        <span class="card-row-val">4% gas · 3% restaurants &amp; travel · 2% Costco · 1% everything else</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Reward</span>
+        <span class="card-row-val">~$360 certificate in February · redeemable for cash at Costco register · stacks with Executive 2% (~$160) for ~$520 combined</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-block">
+    <div class="card-block-header">
+      <h3>Chase Freedom Unlimited</h3>
+      <span class="card-tag">Drawer · formerly Disney Visa · product change October 2026</span>
+    </div>
+    <div class="card-block-body">
+      <div class="card-row">
+        <span class="card-row-label">Fee</span>
+        <span class="card-row-val">$0 after product change</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Action</span>
+        <span class="card-row-val">Keep open — preserves credit line and account age. Do not use.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-block">
+    <div class="card-block-header">
+      <h3>Amex Blue Cash Everyday</h3>
+      <span class="card-tag">Drawer · no annual fee</span>
+    </div>
+    <div class="card-block-body">
+      <div class="card-row">
+        <span class="card-row-label">Fee</span>
+        <span class="card-row-val">$0</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Action</span>
+        <span class="card-row-val">Keep open — preserves credit line and account age. Do not use.</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">Annual Cost</p>
+  <div class="cost-table">
+    <div class="cost-row">
+      <span class="cost-label">Amex Platinum (Adam + Wendy AU)</span>
+      <span class="cost-val">$890</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">Amex Gold</span>
+      <span class="cost-val">$325</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">Costco Visa</span>
+      <span class="cost-val">$0</span>
+    </div>
+    <div class="cost-row total-row">
+      <span class="cost-label">Gross fees to budget</span>
+      <span class="cost-val">$1,215/yr · ~$101/mo</span>
+    </div>
+    <div class="cost-row net-row">
+      <span class="cost-label">Net after credits captured</span>
+      <span class="cost-val">~$475/yr</span>
+    </div>
+  </div>
+  <div class="callout">Budget for gross fees. The $740 difference comes back through credits that require active use.</div>
+
+  <p class="section-title">Points Goal</p>
+  <div class="info-box">
+    <div class="stat-row">
+      <span class="stat-label">Current MR balance</span>
+      <span class="stat-val">135,218</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Welcome bonus adds</span>
+      <span class="stat-val">100,000</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Target for travel redemption</span>
+      <span class="stat-val">250,000</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Gold annual dining/grocery add</span>
+      <span class="stat-val">~75,000/yr</span>
+    </div>
+  </div>
+  <div class="callout gray">Transfer partners: Delta SkyMiles, Virgin Atlantic, Air France Flying Blue, ANA, and 15+ others.</div>
+
+  <p class="section-title">Key Dates</p>
+  <div class="date-item">
+    <span class="date-pill urgent">Now</span>
+    <span class="date-desc">Enroll in $96 Uber One credit in Amex app — expires October 30 2026</span>
+  </div>
+  <div class="date-item">
+    <span class="date-pill">Jul 14</span>
+    <span class="date-desc">Apply Costco Visa — unfreeze Equifax and Experian first</span>
+  </div>
+  <div class="date-item">
+    <span class="date-pill">Oct 15</span>
+    <span class="date-desc">Call Chase, product change Disney Visa ending 4177 to Freedom Unlimited — redeem Disney Rewards Dollars first</span>
+  </div>
+  <div class="date-item">
+    <span class="date-pill">Nov 1</span>
+    <span class="date-desc">Confirm Disney annual fee NOT posting</span>
+  </div>
+  <div class="date-item">
+    <span class="date-pill">Feb 2027</span>
+    <span class="date-desc">Redeem both Costco certificates at register for cash — expected ~$520 combined</span>
+  </div>
+
+</div><!-- /tab-summary -->
+
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4 — REWARDS TRACKER
+     ══════════════════════════════════════════════ -->
+<div class="section" id="tab-tracker">
+
+  <!-- TRACKER DATA — update this object to refresh the page -->
+  <script>
+  var TRACKER = {
+    lastUpdated: "May 30, 2026",
+    gold: {
+      dining:   { used: 0,   total: 120, label: "$10/mo Dining Credit",        note: "GrubHub, Cheesecake, BWW, Wonder" },
+      uber:     { used: 0,   total: 120, label: "$10/mo Uber Cash",            note: "Check Uber app balance" },
+      resy:     { used: 0,   total: 100, label: "$100 Resy Credit",            note: "$50 Jan–Jun · $50 Jul–Dec" },
+      dunkin:   { used: 0,   total: 84,  label: "$7/mo Dunkin' Credit",        note: "" },
+      uberOne:  { used: 0,   total: 96,  label: "$96 Uber One (one-time)",     note: "Expires Oct 30 2026 — enroll now" }
+    },
+    platinum: {
+      uber:     { used: 0,   total: 200, label: "$15/mo Uber Cash",            note: "$15 Jan–Nov · $35 Dec" },
+      airline:  { used: 0,   total: 200, label: "$200 Airline Fee Credit",     note: "Delta selected" },
+      hotel:    { used: 0,   total: 200, label: "$200 Hotel Credit",           note: "FHR or Hotel Collection via Amex Travel" },
+      digital:  { used: 0,   total: 240, label: "$240 Digital Entertainment",  note: "Disney+, Hulu, ESPN+, Peacock, NYT, WSJ" },
+      walmart:  { used: 0,   total: 155, label: "$155 Walmart+ Credit",        note: "Must keep subscription on Platinum" },
+      saks:     { used: 0,   total: 100, label: "$100 Saks Credit",            note: "$50 Jan–Jun · $50 Jul–Dec" }
+    }
+  };
+  </script>
+
+  <p id="tracker-updated-line" class="tracker-updated"></p>
+
+  <div id="tracker-summary-box" class="tracker-summary-box">
+    <h3>2026 Credit Capture</h3>
+    <div class="tracker-sum-row">
+      <span class="tracker-sum-label">Gold — used</span>
+      <span class="tracker-sum-val" id="ts-gold-used">—</span>
+    </div>
+    <div class="tracker-sum-row">
+      <span class="tracker-sum-label">Gold — remaining</span>
+      <span class="tracker-sum-val" id="ts-gold-rem">—</span>
+    </div>
+    <div class="tracker-sum-row">
+      <span class="tracker-sum-label">Platinum — used</span>
+      <span class="tracker-sum-val" id="ts-plat-used">—</span>
+    </div>
+    <div class="tracker-sum-row">
+      <span class="tracker-sum-label">Platinum — remaining</span>
+      <span class="tracker-sum-val" id="ts-plat-rem">—</span>
+    </div>
+    <div class="tracker-sum-row">
+      <span class="tracker-sum-label">Total credits available</span>
+      <span class="tracker-sum-val" id="ts-total">—</span>
+    </div>
+    <div class="tracker-sum-row">
+      <span class="tracker-sum-label">Total captured so far</span>
+      <span class="tracker-sum-val" id="ts-captured">—</span>
+    </div>
+  </div>
+
+  <p class="section-title">Amex Gold Credits</p>
+  <div class="tracker-card" id="tracker-gold"></div>
+
+  <p class="section-title">Amex Platinum Credits</p>
+  <div class="tracker-card" id="tracker-plat"></div>
+
+  <div class="callout" style="margin-top:8px;">To update: screenshot your Amex app benefits screen and share it with Claude at claude.ai — I'll parse the balances and push an update.</div>
+
+</div><!-- /tab-tracker -->
+
+
+<footer>
+  Last updated May 2026 &middot; <a href="https://cards.herndons.us">cards.herndons.us</a> &middot; For questions ask Claude at <a href="https://claude.ai">claude.ai</a>
+</footer>
+
+<script>
+  // ─── TAB SWITCHING ───
+  document.querySelectorAll('.nav-tabs button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tab = this.getAttribute('data-tab');
+      document.querySelectorAll('.nav-tabs button').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('active'); });
+      this.classList.add('active');
+      var el = document.getElementById('tab-' + tab);
+      if (el) el.classList.add('active');
+      window.scrollTo(0, 0);
+    });
+  });
+
+  // ─── CHECKBOX TOGGLE ───
+  function toggleCheck(item) {
+    item.classList.toggle('done');
+  }
+
+  // ─── TRACKER RENDER ───
+  function fmt(n) { return '$' + n.toFixed(0); }
+
+  function renderBenefits(containerId, data, colorClass) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+    Object.keys(data).forEach(function(key) {
+      var b = data[key];
+      var pct = b.total > 0 ? Math.min(100, (b.used / b.total) * 100) : 0;
+      var remaining = b.total - b.used;
+      var fillClass = pct >= 100 ? 'full' : colorClass;
+      var html = '<div class="tracker-benefit">'
+        + '<div class="tracker-benefit-top">'
+        + '<span class="tracker-benefit-name">' + b.label + '</span>'
+        + '<span class="tracker-benefit-amounts">'
+        + '<span class="remaining">' + fmt(remaining) + ' left</span>'
+        + ' &nbsp;<span class="used">' + fmt(b.used) + ' used</span>'
+        + '</span></div>'
+        + '<div class="progress-bar"><div class="progress-fill ' + fillClass + '" style="width:' + pct + '%"></div></div>'
+        + (b.note ? '<div class="tracker-benefit-note">' + b.note + '</div>' : '')
+        + '</div>';
+      container.innerHTML += html;
+    });
+  }
+
+  function sumData(data) {
+    var used = 0, total = 0;
+    Object.keys(data).forEach(function(k) { used += data[k].used; total += data[k].total; });
+    return { used: used, total: total };
+  }
+
+  function renderTracker() {
+    document.getElementById('tracker-updated-line').textContent = 'Last updated: ' + TRACKER.lastUpdated;
+
+    // Add colored headers
+    var goldCard = document.getElementById('tracker-gold');
+    goldCard.innerHTML = '<div class="tracker-card-header gold-bg">Amex Gold</div>';
+    renderBenefits('tracker-gold', TRACKER.gold, 'gold');
+
+    var platCard = document.getElementById('tracker-plat');
+    platCard.innerHTML = '<div class="tracker-card-header plat-bg">Amex Platinum</div>';
+    renderBenefits('tracker-plat', TRACKER.platinum, 'plat');
+
+    var g = sumData(TRACKER.gold);
+    var p = sumData(TRACKER.platinum);
+    var totalAvail = g.total + p.total;
+    var totalUsed  = g.used  + p.used;
+
+    document.getElementById('ts-gold-used').textContent  = fmt(g.used)  + ' of ' + fmt(g.total);
+    document.getElementById('ts-gold-rem').textContent   = fmt(g.total - g.used);
+    document.getElementById('ts-plat-used').textContent  = fmt(p.used)  + ' of ' + fmt(p.total);
+    document.getElementById('ts-plat-rem').textContent   = fmt(p.total - p.used);
+    document.getElementById('ts-total').textContent      = fmt(totalAvail);
+    document.getElementById('ts-captured').textContent   = fmt(totalUsed);
+  }
+
+  renderTracker();
+</script>
+
+</body>
+</html>

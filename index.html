@@ -468,6 +468,11 @@
       <span class="decision-a" style="color:#ff6666;">Costco Visa</span>
     </div>
     <div class="decision-row">
+      <span class="decision-q">Rideshare (Uber/Lyft)?</span>
+      <span class="decision-arrow">→</span>
+      <span class="decision-a" style="color:#ff6666;">Costco Visa</span>
+    </div>
+    <div class="decision-row">
       <span class="decision-q">Walmart+ subscription?</span>
       <span class="decision-arrow">→</span>
       <span class="decision-a" style="color:#b0b0ac;">Platinum</span>
@@ -494,7 +499,7 @@
       <div class="cat-item">Every restaurant, cafe, coffee shop, bar</div>
       <div class="cat-item">Business lunches and breakfast meetings</div>
       <div class="cat-item">DoorDash, GrubHub, Uber Eats</div>
-      <div class="cat-sub">GrubHub triggers $10/month dining credit — use it</div>
+      <div class="cat-sub">GrubHub triggers $10/month dining credit — use it · Five Guys also counts</div>
     </div>
   </div>
 
@@ -569,11 +574,13 @@
   </div>
   <div class="cat-block">
     <div class="cat-header">
-      <span class="cat-name">Rideshare</span>
-      <span class="badge badge-gold">Gold</span>
+      <span class="cat-name">Rideshare – Uber &amp; Lyft</span>
+      <span class="badge badge-costco">Costco Visa</span>
     </div>
     <div class="cat-items">
-      <div class="cat-item">Uber and Lyft rides</div>
+      <div class="cat-item">Charge rides to Costco Visa – earns 3% cash back</div>
+      <div class="cat-sub">Uber Cash auto-loads monthly regardless of card used: $10/mo from Gold + $15/mo from Platinum</div>
+      <div class="cat-sub">Use Uber Cash balance in the Uber app first – Costco Visa covers any remainder</div>
     </div>
   </div>
 
@@ -663,7 +670,7 @@
       <div class="check-box"><span class="check-box-tick">✓</span></div>
       <div>
         <div class="check-label">$10 dining credit used</div>
-        <div class="check-sub">GrubHub, Cheesecake Factory, Buffalo Wild Wings, Wonder</div>
+        <div class="check-sub">GrubHub, Cheesecake Factory, Buffalo Wild Wings, Five Guys, Wonder</div>
       </div>
     </div>
     <div class="check-item" onclick="toggleCheck(this)">
@@ -758,6 +765,20 @@
       <div>
         <div class="check-label">$100 Saks credit on track</div>
         <div class="check-sub">$50 Jan–Jun · $50 Jul–Dec</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$100 Resy credit used this quarter (Apr–Jun)</div>
+        <div class="check-sub">Quarterly credit – Apr 1–Jun 30 NOT YET USED · Book via Resy now</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"><span class="check-box-tick">✓</span></div>
+      <div>
+        <div class="check-label">$75 Lululemon credit used this quarter</div>
+        <div class="check-sub">Quarterly – USE BEFORE JUN 30 · $75/quarter at Lululemon US stores</div>
       </div>
     </div>
   </div>
@@ -1080,7 +1101,8 @@
       uberOne:  { used: 0,   total: 96,  label: "$96 Uber One (one-time)",         note: "Expires Oct 30 2026 — enroll now" }
     },
     platinum: {
-      uberOne:  { used: 49,  total: 120, label: "$120 Uber One Credit",            note: "$10/mo" },
+      uberCash: { used: 0,   total: 200, label: "$15/mo Uber Cash (Platinum)",     note: "Loads to Uber account automatically · $15 Jan-Nov, $35 Dec" },
+      uberOne:  { used: 49,  total: 120, label: "$120 Uber One Credit",            note: "Like Walmart+ — subscription charged, Amex reimburses it" },
       airline:  { used: 200, total: 200, label: "$200 Airline Fee Credit",         note: "Delta selected — FULLY USED" },
       hotel:    { used: 300, total: 600, label: "$600 Hotel Credit",               note: "$300 Jan–Jun · $300 Jul–Dec via Amex Travel" },
       digital:  { used: 125, total: 300, label: "$300 Digital Entertainment",      note: "Disney+, Hulu, ESPN+, Peacock, NYT, WSJ" },
